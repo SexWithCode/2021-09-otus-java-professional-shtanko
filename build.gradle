@@ -1,0 +1,35 @@
+plugins {
+    //  Plugin to support Java
+    id 'java'
+    //  Plugin to support Idea IDE
+    id 'idea'
+    //  Plugin to build thick .jar(s)
+    id 'com.github.johnrengelman.shadow' version '6.1.0' apply false
+    //  Plugin to manipulate dependencies
+    id "io.spring.dependency-management" version "1.0.10.RELEASE" apply false
+}
+
+idea {
+    project {
+        //  Set Java version to 15
+        languageLevel = 15
+    }
+    module {
+        downloadJavadoc = true
+        downloadSources = true
+    }
+}
+
+group 'ru.otus'
+version '0.0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+}
+
+test {
+    useJUnitPlatform()
+}

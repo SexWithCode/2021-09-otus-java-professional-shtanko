@@ -1,0 +1,37 @@
+plugins {
+    //  Plugin to support Java
+    id 'java'
+    //  Plugin to build thick .jar(s)
+    id 'com.github.johnrengelman.shadow'
+}
+
+sourceCompatibility = JavaVersion.VERSION_15
+targetCompatibility = JavaVersion.VERSION_15
+
+group 'ru.otus'
+version '0.0.0.1-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
+}
+
+shadowJar {
+    archiveBaseName.set('SimpleGradle-thick')
+    archiveVersion.set('')
+    archiveClassifier.set('')
+    manifest {
+        attributes 'Main-Class': 'ru.otus.HelloOtus'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+//  Set to build thick .jar on the build lifecycle
+tasks.build.dependsOn tasks.shadowJar
