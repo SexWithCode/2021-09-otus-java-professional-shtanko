@@ -6,7 +6,7 @@ plugins {
     //  Plugin to build thick .jar(s)
     id 'com.github.johnrengelman.shadow' version '6.1.0' apply false
     //  Plugin to manipulate dependencies
-    id "io.spring.dependency-management" version "1.0.10.RELEASE" apply false
+    id "io.spring.dependency-management" version "1.0.10.RELEASE"
 }
 
 idea {
@@ -27,7 +27,14 @@ repositories {
     mavenCentral()
 }
 
-dependencies {
+allprojects {
+    apply plugin: "io.spring.dependency-management"
+    dependencyManagement {
+        dependencies {
+            // https://mvnrepository.com/artifact/com.google.guava/guava
+            dependency(group: 'com.google.guava', name: 'guava', version: '30.1.1-jre')
+        }
+    }
 }
 
 test {
