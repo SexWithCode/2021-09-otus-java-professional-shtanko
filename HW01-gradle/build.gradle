@@ -3,6 +3,8 @@ plugins {
     id 'java'
     //  Plugin to build thick .jar(s)
     id 'com.github.johnrengelman.shadow'
+    //  Plugin to manipulate dependencies
+    id "io.spring.dependency-management"
 }
 
 sourceCompatibility = JavaVersion.VERSION_15
@@ -16,7 +18,6 @@ repositories {
 }
 
 dependencies {
-    // https://mvnrepository.com/artifact/com.google.guava/guava
     implementation group: 'com.google.guava', name: 'guava', version: '30.1.1-jre'
 }
 
