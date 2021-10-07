@@ -7,6 +7,8 @@
 .gradle
 target/
 /build/
+build
+out
 
 # Compiled class file
 *.class
@@ -22,6 +24,7 @@ target/
 
 # Package Files #
 *.jar
+!gradle-wrapper.jar
 *.war
 *.nar
 *.ear
