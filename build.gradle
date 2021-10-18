@@ -33,6 +33,14 @@ dependencyManagement {
     }
 }
 
+configurations.all {
+    resolutionStrategy {
+        failOnVersionConflict()
+    }
+    resolutionStrategy {
+    }
+}
+
 test {
     useJUnitPlatform()
 }
